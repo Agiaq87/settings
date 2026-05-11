@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:settings/l10n/l10n.dart';
 import 'package:settings/view/pages/power/battery_section.dart';
 import 'package:settings/view/pages/power/lid_close_section.dart';
+import 'package:settings/view/pages/power/peripheral_devices_section.dart';
 import 'package:settings/view/pages/power/power_profile_section.dart';
 import 'package:settings/view/pages/power/power_settings_section.dart';
 import 'package:settings/view/pages/power/suspend_section.dart';
@@ -26,6 +27,7 @@ class PowerPage extends StatelessWidget {
     return SettingsPage(
       children: <Widget>[
         BatterySection.create(context),
+        PeripheralDevicesSection.create(context),
         PowerProfileSection.create(context),
         PowerSettingsSection.create(context),
         SuspendSection.create(context),
