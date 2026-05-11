@@ -3,18 +3,27 @@ import 'package:nm/nm.dart';
 import 'package:provider/provider.dart';
 import 'package:settings/l10n/l10n.dart';
 import 'package:settings/view/common/title_bar_tab.dart';
+import 'package:settings/view/pages/connections/models/ethernet_model.dart';
 import 'package:settings/view/pages/connections/wifi_content.dart';
 import 'package:settings/view/pages/settings_page.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:yaru/yaru.dart';
 
+import 'ethernet_content.dart';
 import 'models/wifi_model.dart';
 
 class ConnectionsPage extends StatefulWidget {
   const ConnectionsPage({super.key});
   static Widget create(BuildContext context) {
-    return ChangeNotifierProvider<WifiModel>(
-      create: (_) => WifiModel(di<NetworkManagerClient>()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<WifiModel>(
+          create: (_) => WifiModel(di<NetworkManagerClient>()),
+        ),
+        ChangeNotifierProvider<EthernetModel>(
+          create: (_) => EthernetModel(di<NetworkManagerClient>()),
+        ),
+      ],
       child: const ConnectionsPage(),
     );
   }
@@ -94,7 +103,7 @@ class _ConnectionsPageState extends State<ConnectionsPage>
                     : const WifiAdaptorNotFound(),
                 const SettingsPage(
                   children: [
-                    Text('Ethernet - Please implement 🥲️'),
+                    EthernetDevicesContent(),
                   ],
                 ),
                 const SettingsPage(
