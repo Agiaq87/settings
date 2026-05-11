@@ -66,6 +66,102 @@ class _BatterySectionState extends State<BatterySection> {
             ],
           ),
         ),
+
+        YaruTile(
+          title: Text(context.l10n.batteryEnergy),
+          trailing: Text(
+            '${model.energyWh.toStringAsFixed(1)} Wh',
+            style: theme.textTheme.bodyMedium,
+          ),
+        ),
+
+        YaruTile(
+          title: Text(context.l10n.batteryEnergyFull),
+          trailing: Text(
+            '${model.energyFullWh.toStringAsFixed(1)} Wh',
+            style: theme.textTheme.bodyMedium,
+          ),
+        ),
+
+        YaruTile(
+          title: Text(context.l10n.batteryEnergyFullDesign),
+          trailing: Text(
+            '${model.energyFullDesignWh.toStringAsFixed(1)} Wh',
+            style: theme.textTheme.bodyMedium,
+          ),
+        ),
+
+        // Health battery
+        YaruTile(
+          title: Text(context.l10n.batteryCapacity),
+          trailing: Text(
+            '${model.capacity.toStringAsFixed(1)} %',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: switch(model.capacity) {
+                < 40.0 => theme.colorScheme.error,
+                >= 40.0 && < 80.0 => theme.colorScheme.warning,
+                >= 80.0 => theme.colorScheme.success,
+                _ => theme.colorScheme.error
+              },
+            ),
+          ),
+        ),
+
+        // Voltage
+        YaruTile(
+          title: Text(context.l10n.batteryVoltage),
+          trailing: Text(
+            '${model.voltage.toStringAsFixed(1)} V',
+            style: theme.textTheme.bodyMedium,
+          ),
+        ),
+
+        // Temperature
+        if (model.temperature > 0.0)
+          YaruTile(
+            title: Text(context.l10n.batteryTemperature),
+            trailing: Text(
+              '${model.temperature.toStringAsFixed(1)} °C',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: switch(model.capacity) {
+                < 40.0 => theme.colorScheme.error,
+                >= 40.0 && < 80.0 => theme.colorScheme.warning,
+                >= 80.0 => theme.colorScheme.success,
+                _ => theme.colorScheme.error
+                },
+              ),
+            ),
+          ),
+
+        // Instant consume
+        if (model.energyRate > 0)
+          YaruTile(
+            title: Text(context.l10n.batteryInstantConsume),
+            trailing: Text(
+              '${model.energyRate.toStringAsFixed(2)} W',
+              style: theme.textTheme.bodyMedium,
+            ),
+          ),
+
+        // Producer
+        if (model.vendor.isNotEmpty)
+          YaruTile(
+            title: Text(context.l10n.batteryVendor),
+            trailing: Text(
+              model.vendor,
+              style: theme.textTheme.bodyMedium,
+            ),
+          ),
+
+        if (model.model.isNotEmpty)
+          YaruTile(
+            title: Text(context.l10n.batteryModel),
+            trailing: Text(
+              model.model,
+              style: theme.textTheme.bodyMedium,
+            ),
+          ),
+
       ],
     );
   }

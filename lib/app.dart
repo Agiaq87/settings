@@ -10,6 +10,7 @@ import 'package:settings/view/app_theme.dart';
 import 'package:settings/view/pages/page_items.dart';
 import 'package:yaru/yaru.dart';
 
+
 class UbuntuSettingsApp extends StatelessWidget {
   const UbuntuSettingsApp({
     super.key,
