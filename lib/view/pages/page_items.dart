@@ -10,6 +10,7 @@ import 'package:settings/view/pages/color/color_page.dart';
 import 'package:settings/view/pages/connections/connections_page.dart';
 import 'package:settings/view/pages/date_and_time/date_time_page.dart';
 import 'package:settings/view/pages/default_apps/default_apps_page.dart';
+import 'package:settings/view/pages/disk/disk_page.dart';
 import 'package:settings/view/pages/displays/displays_page.dart';
 import 'package:settings/view/pages/info/info_page.dart';
 import 'package:settings/view/pages/keyboard/keyboard_page.dart';
@@ -144,6 +145,14 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         builder: (_) => const Center(child: Text('Printers')),
         title: context.l10n.printersPageTitle,
       ),
+  SettingsPageItem(
+    titleBuilder: DiskPage.createTitle,
+    iconBuilder: (context, selected) =>
+    const Icon(YaruIcons.drive_harddisk),
+    builder: DiskPage.create,
+    //searchMatches: RemovableMediaPage.searchMatches,
+    title: context.l10n.diskPageTitle,
+  ),
       SettingsPageItem(
         titleBuilder: RemovableMediaPage.createTitle,
         iconBuilder: (context, selected) =>

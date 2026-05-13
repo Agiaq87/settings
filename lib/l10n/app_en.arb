@@ -365,6 +365,13 @@
   "nightLightPageScheduleTitle":"Schedule",
   "nightLightPageScheduleSubtitle":"Set a schedule for Nightlight",
   "nightLightPageScheduleFrom":"From",
-  "nightLightPageScheduleTo":"To"
+  "nightLightPageScheduleTo":"To",
+  "diskPageTitle": "Disks",
+  "diskCapacity": "CAPACITY",
+  "diskType": "TYPE",
+  "diskRemovable": "Removable",
+  "diskVendor": "VENDOR",
+  "diskRevision": "Revision",
+  "diskPartitions": "PARTITION"
 }
 

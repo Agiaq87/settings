@@ -365,5 +365,12 @@
   "nightLightPageScheduleTitle": "Programmazione",
   "nightLightPageScheduleSubtitle": "Imposta una programmazione per la Luce notturna",
   "nightLightPageScheduleFrom": "Da",
-  "nightLightPageScheduleTo": "A"
+  "nightLightPageScheduleTo": "A",
+  "diskPageTitle": "Dischi",
+  "diskCapacity": "CAPACITÀ",
+  "diskType": "TIPO",
+  "diskRemovable": "Rimovibile",
+  "diskVendor": "PRODUTTORE",
+  "diskRevision": "REVISIONE",
+  "diskPartitions": "PARTIZIONI"
 }
