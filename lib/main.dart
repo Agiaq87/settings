@@ -12,6 +12,7 @@ import 'package:settings/services/keyboard_service.dart';
 import 'package:settings/services/locale_service.dart';
 import 'package:settings/services/power_profile_service.dart';
 import 'package:settings/services/power_settings_service.dart';
+import 'package:snapd/snapd.dart';
 import 'package:udisks/udisks.dart';
 import 'package:upower/upower.dart';
 import 'package:watch_it/watch_it.dart';
@@ -55,6 +56,10 @@ void main() async {
     )
     ..registerLazySingleton<UPowerClient>(
       UPowerClient.new,
+      dispose: (client) => client.close(),
+    )
+    ..registerLazySingleton<SnapdClient>(
+      SnapdClient.new,
       dispose: (client) => client.close(),
     )
     ..registerLazySingleton<BlueZClient>(
