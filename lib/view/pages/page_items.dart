@@ -30,6 +30,7 @@ import 'package:yaru/yaru.dart';
 
 List<SettingsPageItem> getPageItems(BuildContext context) => [
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionConnectivity,
         titleBuilder: ConnectionsPage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.network),
         builder: ConnectionsPage.create,
@@ -38,6 +39,7 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         hasAppBar: false,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionConnectivity,
         titleBuilder: BluetoothPage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.bluetooth),
         builder: BluetoothPage.create,
@@ -45,6 +47,7 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         title: context.l10n.bluetoothPageTitle,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionLook,
         titleBuilder: WallpaperPage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.wallpaper),
         builder: WallpaperPage.create,
@@ -52,6 +55,7 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         title: context.l10n.wallpaperPageTitle,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionLook,
         titleBuilder: AppearancePage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.panel_look),
         builder: AppearancePage.create,
@@ -59,63 +63,7 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         title: context.l10n.appearancePageTitle,
       ),
       SettingsPageItem(
-        titleBuilder: PrivacyPage.createTitle,
-        builder: PrivacyPage.create,
-        searchMatches: PrivacyPage.searchMatches,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.lock),
-        title: context.l10n.privacyPageTitle,
-        hasAppBar: false,
-      ),
-      SettingsPageItem(
-        titleBuilder: MultiTaskingPage.createTitle,
-        builder: MultiTaskingPage.create,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.windows),
-        searchMatches: MultiTaskingPage.searchMatches,
-        title: context.l10n.multiTaskingPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: NotificationsPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.bell),
-        builder: NotificationsPage.create,
-        searchMatches: NotificationsPage.searchMatches,
-        title: context.l10n.notificationsPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: SearchPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.search),
-        builder: SearchPage.create,
-        searchMatches: SearchPage.searchMatches,
-        title: context.l10n.searchPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: AppsPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.app_grid),
-        builder: AppsPage.create,
-        searchMatches: AppsPage.searchMatches,
-        title: context.l10n.appsPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: OnlineAccountsPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.cloud),
-        builder: OnlineAccountsPage.create,
-        searchMatches: OnlineAccountsPage.searchMatches,
-        title: context.l10n.onlineAccountsPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: SoundPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.music_note),
-        builder: SoundPage.create,
-        searchMatches: SoundPage.searchMatches,
-        title: context.l10n.soundPageTitle,
-      ),
-      SettingsPageItem(
-        titleBuilder: PowerPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.power),
-        builder: PowerPage.create,
-        searchMatches: PowerPage.searchMatches,
-        title: context.l10n.powerPageTitle,
-      ),
-      SettingsPageItem(
+        sectionTitle: context.l10n.sectionLook,
         titleBuilder: DisplaysPage.createTitle,
         iconBuilder: (context, selected) =>
             const Icon(YaruIcons.display_layout),
@@ -125,6 +73,57 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         hasAppBar: false,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionLook,
+        titleBuilder: ColorPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.colors),
+        builder: ColorPage.create,
+        searchMatches: ColorPage.searchMatches,
+        title: context.l10n.displaysColorTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionPrivacy,
+        titleBuilder: PrivacyPage.createTitle,
+        builder: PrivacyPage.create,
+        searchMatches: PrivacyPage.searchMatches,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.lock),
+        title: context.l10n.privacyPageTitle,
+        hasAppBar: false,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionPrivacy,
+        titleBuilder: NotificationsPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.bell),
+        builder: NotificationsPage.create,
+        searchMatches: NotificationsPage.searchMatches,
+        title: context.l10n.notificationsPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionPrivacy,
+        titleBuilder: SearchPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.search),
+        builder: SearchPage.create,
+        searchMatches: SearchPage.searchMatches,
+        title: context.l10n.searchPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionSystem,
+        titleBuilder: PowerPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.power),
+        builder: PowerPage.create,
+        searchMatches: PowerPage.searchMatches,
+        title: context.l10n.powerPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionSystem,
+        titleBuilder: DiskPage.createTitle,
+        iconBuilder: (context, selected) =>
+            const Icon(YaruIcons.drive_harddisk),
+        builder: DiskPage.create,
+        //searchMatches: RemovableMediaPage.searchMatches,
+        title: context.l10n.diskPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionHardware,
         titleBuilder: MouseAndTouchpadPage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.mouse),
         builder: MouseAndTouchpadPage.create,
@@ -132,6 +131,7 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         title: context.l10n.mouseAndTouchPadPageTitle,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionHardware,
         titleBuilder: KeyboardPage.createTitle,
         iconBuilder: (context, selected) => const Icon(YaruIcons.keyboard),
         builder: KeyboardPage.create,
@@ -140,20 +140,14 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         hasAppBar: false,
       ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionHardware,
         titleBuilder: (context) => const Text('Printers'),
         iconBuilder: (context, selected) => const Icon(YaruIcons.printer),
         builder: (_) => const Center(child: Text('Printers')),
         title: context.l10n.printersPageTitle,
       ),
-  SettingsPageItem(
-    titleBuilder: DiskPage.createTitle,
-    iconBuilder: (context, selected) =>
-    const Icon(YaruIcons.drive_harddisk),
-    builder: DiskPage.create,
-    //searchMatches: RemovableMediaPage.searchMatches,
-    title: context.l10n.diskPageTitle,
-  ),
       SettingsPageItem(
+        sectionTitle: context.l10n.sectionHardware,
         titleBuilder: RemovableMediaPage.createTitle,
         iconBuilder: (context, selected) =>
             const Icon(YaruIcons.drive_removable_media),
@@ -162,11 +156,36 @@ List<SettingsPageItem> getPageItems(BuildContext context) => [
         title: context.l10n.removableMediaPageTitle,
       ),
       SettingsPageItem(
-        titleBuilder: ColorPage.createTitle,
-        iconBuilder: (context, selected) => const Icon(YaruIcons.colors),
-        builder: ColorPage.create,
-        searchMatches: ColorPage.searchMatches,
-        title: 'Colors', //TODO: localize
+        sectionTitle: context.l10n.sectionHardware,
+        titleBuilder: SoundPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.music_note),
+        builder: SoundPage.create,
+        searchMatches: SoundPage.searchMatches,
+        title: context.l10n.soundPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionUser,
+        titleBuilder: MultiTaskingPage.createTitle,
+        builder: MultiTaskingPage.create,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.windows),
+        searchMatches: MultiTaskingPage.searchMatches,
+        title: context.l10n.multiTaskingPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionUser,
+        titleBuilder: AppsPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.app_grid),
+        builder: AppsPage.create,
+        searchMatches: AppsPage.searchMatches,
+        title: context.l10n.appsPageTitle,
+      ),
+      SettingsPageItem(
+        sectionTitle: context.l10n.sectionUser,
+        titleBuilder: OnlineAccountsPage.createTitle,
+        iconBuilder: (context, selected) => const Icon(YaruIcons.cloud),
+        builder: OnlineAccountsPage.create,
+        searchMatches: OnlineAccountsPage.searchMatches,
+        title: context.l10n.onlineAccountsPageTitle,
       ),
       SettingsPageItem(
         titleBuilder: RegionAndLanguagePage.createTitle,

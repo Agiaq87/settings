@@ -8,6 +8,7 @@ class SettingsPageItem {
     this.searchMatches,
     this.title,
     this.hasAppBar,
+    this.sectionTitle
   });
 
   final WidgetBuilder titleBuilder;
@@ -16,4 +17,5 @@ class SettingsPageItem {
   final Widget Function(BuildContext context, bool selected) iconBuilder;
   final bool Function(String value, BuildContext context)? searchMatches;
   final bool? hasAppBar;
+  final String? sectionTitle;
 }

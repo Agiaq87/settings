@@ -372,5 +372,13 @@
   "diskRemovable": "Rimovibile",
   "diskVendor": "PRODUTTORE",
   "diskRevision": "REVISIONE",
-  "diskPartitions": "PARTIZIONI"
+  "diskPartitions": "PARTIZIONI",
+
+  "sectionConnectivity": "Connettività",
+  "sectionLook": "Aspetto",
+  "displaysColorTitle": "Colore",
+  "sectionPrivacy": "Privacy",
+  "sectionSystem": "Sistema",
+  "sectionHardware": "Hardware",
+  "sectionUser": "Utente"
 }

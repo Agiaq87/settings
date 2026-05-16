@@ -78,13 +78,35 @@ class App extends StatelessWidget {
     return YaruMasterDetailPage(
       paneLayoutDelegate: const YaruFixedPaneDelegate(paneSize: 270),
       length: items.length,
-      tileBuilder: (context, index, selected, availableWidth) => IconTheme(
-        data: Theme.of(context).iconTheme.copyWith(size: 21),
-        child: YaruMasterTile(
-          title: items[index].titleBuilder(context),
-          leading: items[index].iconBuilder(context, selected),
-        ),
-      ),
+      tileBuilder: (context, index, selected, availableWidth) {
+        final item = items[index];
+        final showHeader = item.sectionTitle != null &&
+            (index == 0 || items[index - 1].sectionTitle != item.sectionTitle);
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (showHeader)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+                child: Text(
+                  item.sectionTitle!,
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                  ),
+                ),
+              ),
+            IconTheme(
+              data: Theme.of(context).iconTheme.copyWith(size: 21),
+              child: YaruMasterTile(
+                title: items[index].titleBuilder(context),
+                leading: items[index].iconBuilder(context, selected),
+              ),
+            ),
+          ],
+        );
+      },
       pageBuilder: (context, index) => YaruDetailPage(
         body: items[index].builder(context),
         appBar: items[index].hasAppBar == false
