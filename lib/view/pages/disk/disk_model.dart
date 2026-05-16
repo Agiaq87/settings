@@ -46,7 +46,7 @@ class DiskModel extends SafeChangeNotifier {
              b.idUsage.isNotEmpty,
          ).toList(),
       };
-      for (final entry in _drivePartitions.entries) {
+      /*for (final entry in _drivePartitions.entries) {
         print('Drive: ${entry.key.model} → ${entry.value.length} partitions');
         for (final b in entry.value) {
           print('block drive.id="${b.drive?.id}" drive.serial="${b.drive?.serial}"');
@@ -54,7 +54,7 @@ class DiskModel extends SafeChangeNotifier {
             print('config type=${c.type} details=${c.details}' );
           }
         }
-      }
+      }*/
       notifyListeners();
     }
   }
