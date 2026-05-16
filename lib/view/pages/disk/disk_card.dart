@@ -136,10 +136,13 @@ class DiskCard extends StatelessWidget {
 
             const Divider(height: 1),
 
-            YaruSection(
-              headline: Text(context.l10n.diskPartitions),
-              child: Column(
+            // Partitions section
+            /*YaruSection(*/
+              //headline: Text(context.l10n.diskPartitions),
+              /*child: */Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 16),
                   for (final partition in partitions)
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -149,6 +152,7 @@ class DiskCard extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          // Partition icon
                           Icon(
                             _partitionIcon(partition.idType, model.isRootPartition(partition)),
                             size: 24,
@@ -162,12 +166,15 @@ class DiskCard extends StatelessWidget {
                                   mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
                                   children: [
+                                    // Partition name
                                     Text(
-                                      partition.idLabel.isNotEmpty
-                                          ? partition.idLabel
-                                          : partition.idType,
+                                      model.mountPoint(partition) ??
+                                          (partition.idLabel.isNotEmpty
+                                              ? partition.idLabel
+                                              : partition.idType),
                                       style: Theme.of(context).textTheme.bodyMedium,
                                     ),
+                                    // Partition size
                                     Text(
                                       model.formatSize(partition.size),
                                       style: Theme.of(context).textTheme.bodySmall,
@@ -181,6 +188,7 @@ class DiskCard extends StatelessWidget {
                                       : 0,
                                 ),
                                 const SizedBox(height: 6),
+                                // Partition info badge
                                 Wrap(
                                   spacing: 4,
                                   runSpacing: 4,
@@ -214,7 +222,7 @@ class DiskCard extends StatelessWidget {
                     ),
                 ],
               ),
-            ),
+            /*),*/
           ],
         ),
       );

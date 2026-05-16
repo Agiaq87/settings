@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dbus/dbus.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:udisks/udisks.dart';
 
@@ -45,12 +46,15 @@ class DiskModel extends SafeChangeNotifier {
              b.idUsage.isNotEmpty,
          ).toList(),
       };
-      /*for (final entry in _drivePartitions.entries) {
+      for (final entry in _drivePartitions.entries) {
         print('Drive: ${entry.key.model} → ${entry.value.length} partitions');
         for (final b in entry.value) {
           print('block drive.id="${b.drive?.id}" drive.serial="${b.drive?.serial}"');
+          for (final c in b.configuration) {
+            print('config type=${c.type} details=${c.details}' );
+          }
         }
-      }*/
+      }
       notifyListeners();
     }
   }
@@ -108,5 +112,23 @@ class DiskModel extends SafeChangeNotifier {
     } on Exception catch (_) {
       _rootUUIDs = {};
     }
+  }
+
+  String? mountPoint(UDisksBlockDevice partition) {
+    final fstab = partition.configuration
+        .where((c) => c.type == 'fstab')
+        .firstOrNull;
+
+    if (fstab == null) return null;
+
+    final dir = fstab.details['dir'];
+    if (dir is! DBusArray) return null;
+
+    final bytes = dir.children
+        .map((e) => (e as DBusByte).value)
+        .where((b) => b != 0)
+        .toList();
+
+    return String.fromCharCodes(bytes);
   }
 }
