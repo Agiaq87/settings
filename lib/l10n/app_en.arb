@@ -380,6 +380,7 @@
   "sectionPrivacy": "Privacy",
   "sectionSystem": "System",
   "sectionHardware": "Hardware",
-  "sectionUser": "User"
+  "sectionUser": "User",
+  "sectionInfo": "Info"
 }
 

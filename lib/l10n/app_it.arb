@@ -380,5 +380,6 @@
   "sectionPrivacy": "Privacy",
   "sectionSystem": "Sistema",
   "sectionHardware": "Hardware",
-  "sectionUser": "Utente"
+  "sectionUser": "Utente",
+  "sectionInfo": "Info"
 }
