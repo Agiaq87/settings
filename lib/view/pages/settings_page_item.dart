@@ -8,7 +8,7 @@ class SettingsPageItem {
     this.searchMatches,
     this.title,
     this.hasAppBar,
-    this.sectionTitle
+    this.sectionTitle,
   });
 
   final WidgetBuilder titleBuilder;
